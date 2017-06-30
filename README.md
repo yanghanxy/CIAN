@@ -16,11 +16,9 @@ Dataset should be be put in folder ./data and renamed as train.jsoonl, train_snl
 
 ### Visualization of Attention
 PairID 192997e, label Entailment
-![Visual image attention](https://github.com/yanghanxy/CIAN/blob/master/figure/3P.png)
-![Visual image attention](https://github.com/yanghanxy/CIAN/blob/master/figure/3H.png)
+![Visual image attention](https://github.com/yanghanxy/CIAN/blob/master/figure/PairID_192997e.PNG)
 PairID 254941e, label Entailment
-![Visual image attention](https://github.com/yanghanxy/CIAN/blob/master/figure/7P.png)
-![Visual image attention](https://github.com/yanghanxy/CIAN/blob/master/figure/7H.png)
+![Visual image attention](https://github.com/yanghanxy/CIAN/blob/master/figure/PairID_254941e.PNG)
 
 ### Reference
 [Character-Aware Neural Language Models](https://github.com/jarfo/kchar)
