@@ -22,5 +22,5 @@ PairID 254941e, label Entailment
 <p align="center"><img src="https://github.com/yanghanxy/CIAN/blob/master/figure/PairID_254941e.PNG" height="760" width="603"></p>
 
 ### Reference
-[Character-Aware Neural Language Models](https://github.com/jarfo/kchar)
-[Intra Attention Mechanism](https://gist.github.com/cbaziotis/7ef97ccf71cbc14366835198c09809d2)
+[1] [Character-Aware Neural Language Models](https://github.com/jarfo/kchar)
+[2] [Intra Attention Mechanism](https://gist.github.com/cbaziotis/7ef97ccf71cbc14366835198c09809d2)
