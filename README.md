@@ -1,7 +1,7 @@
 ## Character-level Intra Attention Network
 Implementation of the Character-level Intra Attention Network (CIAN) as a master thesis project in [Universitat Politècnica de Catalunya · BarcelonaTech](http://www.upc.edu/). 
 
-Task description of can be seen at [RepEval 2017](https://repeval2017.github.io/shared/). 
+Task description can be seen at [RepEval 2017](https://repeval2017.github.io/shared/). 
 
 Architecture of the model: 
 <p align="center"><img src="https://github.com/yanghanxy/CIAN/blob/master/figure/architecture.png" height="387" width="459"></p>
