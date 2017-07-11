@@ -7,11 +7,35 @@ Architecture of the model:
 <p align="center"><img src="https://github.com/yanghanxy/CIAN/blob/master/figure/architecture.png" height="387" width="459"></p>
 
 ### How to run
+
+First to do a modification with Keras, see the following section. 
+
 Dataset should be be put in folder ./data
 
-To run the model, use '''python ./model.py'''
+To run the model, use 
+```
+python ./model.py
+```
 
 The result and log file will be saved in ./log folder. 
+
+### Modification with keras
+In #Python_Path\Lib\site-packages\keras\preprocessing\text.py, line 39, 
+
+CHANGE
+```
+    text = text.translate(maketrans(filters, split * len(filters)))
+```
+
+TO
+```
+    try:
+        text = unicode(text, "utf-8")
+    except TypeError:
+        pass
+    translate_table = {ord(c): ord(t) for c, t in zip(filters, split * len(filters))}
+    text = text.translate(translate_table)
+```
 
 ### Requirements
 Code is written in python 2.7 and requires [Keras 2](https://github.com/fchollet/keras).
