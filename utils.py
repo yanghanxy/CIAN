@@ -157,11 +157,11 @@ def get_test_data(fn, limit=None):
 
 def load_data(opt):
 
-    training = get_data('{}train.jsonl'.format(opt.data_dir))
-    training_snli = get_data('{}train_snli.jsonl'.format(opt.data_dir))
-    validation = get_data('{}dev.jsonl'.format(opt.data_dir))
-    test_matched = get_test_data('{}test_matched.jsonl'.format(opt.data_dir))
-    test_mismatched = get_test_data('{}test_mismatched.jsonl'.format(opt.data_dir))
+    training = get_data('{}multinli_0.9_train.jsonl'.format(opt.data_dir))
+    training_snli = get_data('{}snli_1.0_train.jsonl'.format(opt.data_dir))
+    validation = get_data('{}multinli_0.9_dev_matched.jsonl'.format(opt.data_dir))
+    test_matched = get_test_data('{}multinli_0.9_test_matched.jsonl'.format(opt.data_dir))
+    test_mismatched = get_test_data('{}multinli_0.9_test_mismatched.jsonl'.format(opt.data_dir))
 
     opt.labels = {'contradiction': 0, 'neutral': 1, 'entailment': 2}
     print('finsh load data')

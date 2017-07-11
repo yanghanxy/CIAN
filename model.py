@@ -16,7 +16,7 @@ def train_model(opt, logger):
 
     if not opt.skip_train:
         logger.info('---TRAIN MODEL---')
-        for train_counter in range(10):
+        for train_counter in range(opt.max_epochs):
 		    if train_counter == 0:
 				model = build_model(opt)
 			else:
@@ -32,15 +32,11 @@ def train_model(opt, logger):
             cp_filepath = opt.save_dir + "cp-" + opt.model_name + "-" + str(train_counter) + "-{val_acc:.2f}.h5"
             cp = ModelCheckpoint(cp_filepath, monitor='val_acc', save_best_only=True, save_weights_only=True)
             callbacks = [cp, csv_logger]
-            model.fit(train_data[:-1], train_data[-1], batch_size=opt.batch_size, epochs=opt.max_epochs, validation_data=(validation[:-1], validation[-1]), callbacks=callbacks)
+            model.fit(train_data[:-1], train_data[-1], batch_size=opt.batch_size, epochs=1, validation_data=(validation[:-1], validation[-1]), callbacks=callbacks)
             save_model_local(opt, model)
     else:
         logger.info('---LOAD MODEL---')
         model = load_model_local(opt)
-        for i in range(10):
-            model.layers.pop()
-        model.outputs = [model.layers[-1].output]
-        model.layers[-1].outbound_nodes = []
 
     # predict
     logger.info('---TEST MODEL---')
@@ -74,7 +70,7 @@ if __name__ == '__main__':
     # optimization
     parser.add_argument('--learning_rate', type=float, default=0.0001, help='starting learning rate')
     parser.add_argument('--batch_size', type=int, default=1, help='number of sequences to train on in parallel')
-    parser.add_argument('--max_epochs', type=int, default=1, help='number of full passes through the training data')
+    parser.add_argument('--max_epochs', type=int, default=10, help='number of full passes through the training data')
     parser.add_argument('--patience', type=int, default=4, help='early stopping after this epochs')
     parser.add_argument('--learning_rate_decay', type=float, default=0.5, help='learning rate decay')
     parser.add_argument('--decay_when', type=float, default=1, help='decay if validation perplexity does not improve by more than this much')
