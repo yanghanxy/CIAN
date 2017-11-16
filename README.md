@@ -4,6 +4,12 @@ Implementation of the paper [Character-level Intra Attention Network](http://www
 Architecture of the model: 
 <p align="center"><img src="https://github.com/yanghanxy/CIAN/blob/master/figure/architecture.png" height="387" width="459"></p>
 
+### Requirements
+Code is written in python 2.7 and requires [Keras 2](https://github.com/fchollet/keras).
+
+### Data
+Dataset could be downloaded at [MultiNLI](http://www.nyu.edu/projects/bowman/multinli/) and [SNLI](http://nlp.stanford.edu/projects/snli/). 
+
 ### How to run
 
 First to do a modification with Keras, see the following section. 
@@ -34,12 +40,6 @@ TO
     translate_table = {ord(c): ord(t) for c, t in zip(filters, split * len(filters))}
     text = text.translate(translate_table)
 ```
-
-### Requirements
-Code is written in python 2.7 and requires [Keras 2](https://github.com/fchollet/keras).
-
-### Data
-Dataset could be downloaded at [MultiNLI](http://www.nyu.edu/projects/bowman/multinli/) and [SNLI](http://nlp.stanford.edu/projects/snli/). 
 
 ### Result
 <p align="center"><img src="https://github.com/yanghanxy/CIAN/blob/master/figure/training.png" height="428" width="783"></p>
