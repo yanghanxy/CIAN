@@ -1,7 +1,5 @@
 ## Character-level Intra Attention Network
-Implementation of the [Character-level Intra Attention Network](https://arxiv.org/abs/1707.07469) (CIAN).
-
-Task description can be seen at [RepEval 2017](https://repeval2017.github.io/shared/). 
+Implementation of the paper [Character-level Intra Attention Network](http://www.aclweb.org/anthology/W/W17/W17-5309.pdf) (CIAN) in proceddings of the [RepEval 2017 Workshop](https://repeval2017.github.io/shared/) in EMNLP 2017. 
 
 Architecture of the model: 
 <p align="center"><img src="https://github.com/yanghanxy/CIAN/blob/master/figure/architecture.png" height="387" width="459"></p>
