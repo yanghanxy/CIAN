@@ -17,10 +17,10 @@ def train_model(opt, logger):
     if not opt.skip_train:
         logger.info('---TRAIN MODEL---')
         for train_counter in range(opt.max_epochs):
-	    if train_counter == 0:
-	        model = build_model(opt)
-	    else:
-		model = load_model_local(opt)
+            if train_counter == 0:
+                model = build_model(opt)
+            else:
+                model = load_model_local(opt)
             np.random.seed(train_counter)
             lens = len(training_snli[-1])
             perm = np.random.permutation(lens)
