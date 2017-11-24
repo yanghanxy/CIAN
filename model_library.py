@@ -92,6 +92,20 @@ class Highway(Layer):
         base_config = super(Highway, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
 
+def dot_product(x, kernel):
+    """
+    Wrapper for dot product operation, in order to be compatible with both
+    Theano and Tensorflow
+    Args:
+        x (): input
+        kernel (): weights
+    Returns:
+    """
+    if K.backend() == 'tensorflow':
+        return K.squeeze(K.dot(x, K.expand_dims(kernel)), axis=-1)
+    else:
+        return K.dot(x, kernel)
+
 class AttentionWithContext(Layer):
     """
         Attention operation, with a context/query vector, for temporal data.
@@ -169,7 +183,7 @@ class AttentionWithContext(Layer):
             x_dp = K.in_train_phase(dropped_inputs, x)
         else:
             x_dp = x
-        uit = K.dot(x_dp, self.W)
+        uit = dot_product(x_dp, self.W)
         if self.bias:
             uit += self.b
         uit = K.tanh(uit)
@@ -180,7 +194,7 @@ class AttentionWithContext(Layer):
             u_dp = K.in_train_phase(dropped_inputs, uit)
         else:
             u_dp = uit
-        ait = K.dot(u_dp, self.u)
+        ait = dot_product(u_dp, self.u)
         a = K.exp(ait)
         a = K.expand_dims(a)
         a /= K.cast(K.sum(a, axis=1, keepdims=True) + K.epsilon(), K.floatx())
